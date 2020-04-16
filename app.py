@@ -12,12 +12,13 @@ import requests
 import os
 
 app = Flask(__name__)
+NOTIONKEY = int(os.environ.get('notion'))
 
 @app.route('/')
 def index():
     r = requests.get('http://httpbin.org/status/418')
     print(r.text)
-    return r.text
+    return r.text+str(NOTIONKEY)
 
 
 if __name__ == '__main__':
