@@ -18,7 +18,7 @@ NOTIONKEY = int(os.environ.get('notion'))
 def index():
     r = requests.get('http://httpbin.org/status/418')
     print(r.text)
-    return r.text+str(NOTIONKEY)
+    return r.text+"do do do doooo dodo"
 
 
 if __name__ == '__main__':
