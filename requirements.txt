@@ -10,6 +10,7 @@ commonmark==0.9.1
 decorator==4.4.2
 dictdiffer==0.8.1
 Flask==1.1.2
+Frozen-Flask==0.15
 idna==2.9
 ipython==7.13.0
 ipython-genutils==0.2.0
@@ -24,6 +25,7 @@ pickleshare==0.7.5
 prompt-toolkit==3.0.5
 ptyprocess==0.6.0
 Pygments==2.6.1
+python-dotenv==0.12.0
 python-slugify==4.0.0
 pytz==2019.3
 requests==2.23.0
