@@ -14,7 +14,7 @@ const Bar = { template: '<div>HOLE</div>' }
 // We'll talk about nested routes later.
 const routes = [
   { path : '/'},
-  { path: '/foo', component: Foo },
+  { path: '/dlcc/foo', component: Foo },
   { path: '/bar', component: Bar }
 ]
 
