@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>
-      <router-link to="/dlcc/foo">Go to Foo</router-link>
+      <router-link to="/foo">Go to Foo</router-link>
       <router-link to="/bar">Go to Bar</router-link>
     </p>
     <router-view></router-view>
