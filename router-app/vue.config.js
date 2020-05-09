@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
     ? '/dlcc/'
-    : '/'
+    : './'
   }
     // configureWebpack: config => {
     //     if (process.env.NODE_ENV === 'production') {
