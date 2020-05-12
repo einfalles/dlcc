@@ -5,6 +5,7 @@ import About from '@/components/About'
 import Daily from '@/components/Daily'
 import Work from '@/components/Work'
 import Essays from '@/components/Essays'
+import ProjectDetails from '@/components/ProjectDetails'
 
 Vue.use(Router)
 
@@ -29,6 +30,19 @@ export default new Router({
     {
       path: '/work',
       name: 'Work',
+      children: [
+        {
+          path: '/work/:id',
+          name: 'Project',
+          meta: {
+            showModal: true
+          },
+          component: ProjectDetails
+        }
+      ],
+      meta: {
+        showModal: false
+      },
       component: Work
     },
     {
