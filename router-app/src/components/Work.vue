@@ -1,7 +1,14 @@
 <template>
   <div class="hello">
+    <vue-fuse
+      placeholder="Search Books of the Bible"
+      :keys="['name']" 
+      :list="workList" 
+      eventName="results"
+    >
+    </vue-fuse>
     <button @click="pushModal" >Modal</button>
-    <div v-for="work in workList">
+    <div v-for="work in results">
       <h1>{{ work.name }}</h1>
       <div v-for="content in work.content">
         <!-- {{ content}} -->
@@ -11,7 +18,7 @@
         <!-- <router-view></router-view> -->
       </div>
     </div>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
@@ -28,6 +35,7 @@ export default {
   data () {
     return {
       showModal: this.$route.meta.showModal,
+      results: [],
       workList:[
         {
             "tags": [
@@ -90,8 +98,9 @@ export default {
   },
   methods: {
     pushModal() {
-       console.log(this.showModal);
-       this.showModal = !this.showModal;
+      this.$search('John', this.books, { keys: ['name'] }).then(result => {
+        this.results = result
+      })
     },
     getWorkData() {
       // axios
@@ -102,10 +111,10 @@ export default {
       console.log("fuck");
     }
   },
-  watch: {
-    '$route.meta' ({showModal}) {
-      this.showModal = showModal
-    }
+  created () {
+    this.$on('results', results => {
+      this.results = results
+    })
   }
 }
 </script>

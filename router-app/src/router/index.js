@@ -30,21 +30,19 @@ export default new Router({
     {
       path: '/work',
       name: 'Work',
-      children: [
-        {
-          path: '/work/:projectid',
-          name: 'project',
-          meta: {
-            showModal: true
-          },
-          props: true,
-          component: ProjectDetails
-        }
-      ],
       meta: {
         showModal: false
       },
       component: Work
+    },
+    {
+      path: '/work/:projectid',
+      name: 'project',
+      meta: {
+        showModal: true
+      },
+      props: true,
+      component: ProjectDetails
     },
     {
       path: '/essays',
