@@ -5,12 +5,13 @@
       <h1>{{ work.name }}</h1>
       <div v-for="content in work.content">
         <!-- {{ content}} -->
-        <component :is="content.type" :block="content" :key="content._uid"></component>
+        <router-link :to="{ name: 'project', params: { projectid: content._uid, content: content}}">
+          <component :is="content.type" :block="content" :key="content._uid"></component>
+        </router-link>
+        <!-- <router-view></router-view> -->
       </div>
     </div>
-    <div v-if="showModal" ref="modal">
-      <p>hello</p>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 

@@ -1,12 +1,13 @@
 <template>
-    <p>{{block.title}}</p>
+    <H1>{{ content }}</H1>
 </template>
 
 <script>
 export default {
   props: {
-    block: Object
+    projectid: String,
+    content: Object
   },
-  name: "text"
+  name: "projdets"
 };
 </script>

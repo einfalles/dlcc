@@ -32,11 +32,12 @@ export default new Router({
       name: 'Work',
       children: [
         {
-          path: '/work/:id',
-          name: 'Project',
+          path: '/work/:projectid',
+          name: 'project',
           meta: {
             showModal: true
           },
+          props: true,
           component: ProjectDetails
         }
       ],
