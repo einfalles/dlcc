@@ -7,18 +7,11 @@
       eventName="results"
     >
     </vue-fuse>
-    <button @click="pushModal" >Modal</button>
     <div v-for="work in results">
-      <h1>{{ work.name }}</h1>
-      <div v-for="content in work.content">
-        <!-- {{ content}} -->
-        <router-link :to="{ name: 'project', params: { projectid: content._uid, content: content}}">
-          <component :is="content.type" :block="content" :key="content._uid"></component>
+        <router-link :to="{ name: 'project', params: { projectid: work.content._uid, content: work.content}}">
+          <h1>{{ work.name }}</h1>
         </router-link>
-        <!-- <router-view></router-view> -->
-      </div>
     </div>
-    <!-- <router-view></router-view> -->
   </div>
 </template>
 
@@ -26,6 +19,8 @@
 import axios from 'axios';
 import sub_sub_header from './SubSubHeader.vue';
 import poo from './Poo.vue';
+let data = require('../assets/db001.json');
+// console.log(data);
 export default {
   name: 'Work',
   components: {
@@ -102,16 +97,17 @@ export default {
         this.results = result
       })
     },
-    getWorkData() {
-      // axios
-      //   .get('./db001.json')
-      //   .then(response => (
-      //     this.workList.push({'title':'hello'})
-      //   ));
-      console.log("fuck");
-    }
   },
   created () {
+    const ax = axios.create({
+      baseURL: 'http://localhost:8080/static'
+    });
+    ax
+      .get('db001.json')
+      .then((response)=> {
+        console.log(response);
+      });
+
     this.$on('results', results => {
       this.results = results
     })

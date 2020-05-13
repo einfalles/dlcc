@@ -1,34 +1,36 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="list">
+    <div v-for="essay in data">
+        <div id="">
+          <img src="https://www.pngkit.com/png/full/2-21021_blue-triangle-neon-lights-png-neon-effect-light.png"/>
+          <h2>{{essay.name}}</h2>
+          <span>{{essay.content[0].title}}</span>
+        </div>
+    </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Essays',
   data () {
     return {
-      msg: 'Welcome to Essays'
+      data: []
     }
+  },
+  created () {
+    const ax = axios.create({
+      baseURL: 'http://localhost:8080/static'
+    });
+    ax.get('essays.json').then((response)=> {
+        this.data = response.data.data;
+        console.log(this.data);
+    });
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-link :to="{ name: 'HelloWorld' }">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/daily">Daily</router-link>
-    <router-link to="/work">Work</router-link>
-    <router-link to="/essays">Essays</router-link>
     <router-view/>
+    <div id="navigation">
+      <router-link :to="{ name: 'HelloWorld' }">Home</router-link>
+      <router-link to="/daily">Daily</router-link>
+      <router-link to="/work">Work</router-link>
+      <router-link to="/essays">Essays</router-link>
+      <router-link to="/about">About</router-link>
+    </div>
   </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   margin-top: 60px;
 }
 </style>
