@@ -16,6 +16,16 @@
 export default {
   name: 'App'
 }
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navigation").style.bottom = "32px";
+  } else {
+    document.getElementById("navigation").style.bottom = "-32px";
+  }
+  prevScrollpos = currentScrollPos;
+}
 </script>
 
 <style>

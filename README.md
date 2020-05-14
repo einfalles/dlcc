@@ -7,3 +7,7 @@ Todos
 - how do i get daily to use the masonry layout?
 - how do I get the funky layout of essays?
 - how do i do lazy load? with images and with infinite scroll?
+- i got the masonry layout to work, but the aspect ratio isn't there so it increases in height
+- got the navigation bar to hide on scroll
+- mobile is going to be a headache.
+- this is goign to take a while to be finished, but i think this is something i can stick with

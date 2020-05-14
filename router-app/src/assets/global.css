@@ -7,12 +7,21 @@ html {
     border-radius: 26px;
     padding: 10px 26px;
     background-color: white;
-    position: relative;
+    position: fixed;
     box-shadow: 0px 5px 10px rgba(255,255,255,.2);
-
+    transition: bottom 0.3s; /* Transition effect when sliding down (and up) */
     color: black;
     font-weight: 600;
+    bottom: 32px;
+    /* right: 0;
+    left: 0; */
+    margin-right: auto;
+    margin-left: auto;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, 50%);
+    max-width: calc(100%);
     z-index: 1;
+    
 }
 #navigation a {
     margin-right: 5px;

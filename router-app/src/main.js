@@ -6,6 +6,8 @@ import App from './App'
 import router from './router'
 import VueFuse from 'vue-fuse'
 import "@/assets/global.css"
+import VueMasonry from 'vue-masonry-css'
+Vue.use(VueMasonry);
 Vue.use(VueFuse);
 Vue.config.productionTip = false
 
