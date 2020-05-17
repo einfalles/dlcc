@@ -5,6 +5,7 @@ import About from '@/components/About'
 import Daily from '@/components/Daily'
 import Work from '@/components/Work'
 import Essays from '@/components/Essays'
+import EssayDetails from '@/components/EssayDetails'
 import ProjectDetails from '@/components/ProjectDetails'
 
 Vue.use(Router)
@@ -48,6 +49,12 @@ export default new Router({
       path: '/essays',
       name: 'Essays',
       component: Essays
-    }
+    },
+    {
+      path: '/essays/:eid',
+      name: 'essaydetail',
+      props: true,
+      component: EssayDetails
+    },
   ]
 })

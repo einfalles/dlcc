@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
-    <vue-fuse
+    <!-- <vue-fuse
       placeholder="Search Books of the Bible"
       :keys="['name']" 
       :list="workList" 
       eventName="results"
     >
-    </vue-fuse>
+    </vue-fuse> -->
     <div v-for="work in results">
-        <router-link :to="{ name: 'project', params: { projectid: work.content._uid, content: work.content}}">
+        <router-link :to="{ name: 'project', params: { projectid: work._id, content: work.content}}">
           <h1>{{ work.name }}</h1>
         </router-link>
     </div>
@@ -21,7 +21,7 @@ import axios from 'axios';
 import sub_sub_header from './SubSubHeader.vue';
 import poo from './Poo.vue';
 let data = require('../assets/db001.json');
-// console.log(data);
+
 export default {
   name: 'Work',
   components: {
@@ -95,7 +95,8 @@ export default {
   methods: {
     pushModal() {
       this.$search('John', this.books, { keys: ['name'] }).then(result => {
-        this.results = result
+        this.results = result;
+        
       })
     },
   },
@@ -106,11 +107,13 @@ export default {
     ax
       .get('db001.json')
       .then((response)=> {
-        console.log(response);
+        this.results = response['data']['Projects'];
+        console.log(this.results);
       });
 
     this.$on('results', results => {
       this.results = results
+      
     })
   }
 }
@@ -118,8 +121,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+input {
+  display: none;
+}
 h1, h2 {
-  font-weight: normal;
+  font-weight: 500;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+    font-size: 56px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+a {
+  text-decoration: none;
+}
+h1:hover {
+  -webkit-text-fill-color: white;
 }
 ul {
   list-style-type: none;

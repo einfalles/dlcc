@@ -1,22 +1,10 @@
 <template>
   <div class="list">
-    <!-- <div v-for="essay in data">
-        <div id="">
-          <app-image
-            lazy-src="https://www.pngkit.com/png/full/2-21021_blue-triangle-neon-lights-png-neon-effect-light.png"
-          />
-          <h2>{{essay.name}}</h2>
-          <span>{{essay.content[0].title}}</span>
-        </div>
-    </div> -->
-<div v-for="(item, $index) in list" :key="$index">
-  <!-- Hacker News item loop -->
-</div>
-<div infinite-wrapper>
-  <!-- set force-use-infinite-wrapper -->
-  <infinite-loading force-use-infinite-wrapper></infinite-loading>
-</div>
-<!-- <infinite-loading @infinite="infiniteHandler"></infinite-loading> -->
+    <div v-for="essay in data">
+        <router-link :to="{ name: 'essaydets', params: { eid: essay._id, content: essay.content}}">
+          <h1>{{ essay.name }}</h1>
+        </router-link>
+    </div>
   </div>
 </template>
 
@@ -34,7 +22,7 @@ export default {
   data () {
     return {
       page: 1,
-      list: []
+      data: []
     }
   },
   methods: {
@@ -69,4 +57,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+input {
+  display: none;
+}
+h1, h2 {
+  font-weight: 500;
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: transparent;
+    font-size: 56px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+a {
+  text-decoration: none;
+}
+h1:hover {
+  -webkit-text-fill-color: white;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
 </style>

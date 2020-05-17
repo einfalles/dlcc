@@ -12,13 +12,12 @@
       :gutter="30"
       >
       <div v-for="(item, index) in data" :key="index">
-        <div style="overflow:hidden;">
+        <div class="cell">
           <app-image
-          :width="212"
-          :height="212"
             lazy-src="http://via.placeholder.com/350x150"
           />
-          Item: {{item.name}}
+          <p>{{item.name}}</p>
+          <p>{{item.creation_date}}</p>
         </div>
         </div>
     </masonry>
@@ -52,7 +51,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+p {
+  margin-top: 0;
+  font-size: 15px;
+}
+.AppImage {
+  width: 100%;
+  margin-bottom: 12px;
+}
 .width {
-  width: 200px;
+  width: 10%;
+}
+.list {
+  max-width: 90%;
+  margin:0 auto;
+}
+.cell {
+  position: relative;
 }
 </style>
